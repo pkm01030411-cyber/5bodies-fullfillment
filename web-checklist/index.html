@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="오체FULL만족 기업연계 프로젝트의 1~11단계 실행 체크리스트">
+  <meta name="theme-color" content="#171714">
+  <title>오체FULL만족 | 프로젝트 체크리스트</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#checklist">체크리스트로 바로가기</a>
+
+  <header class="hero">
+    <div class="hero__glow" aria-hidden="true"></div>
+    <nav class="topbar" aria-label="페이지 도구">
+      <a class="brand" href="#top" aria-label="오체FULL만족 체크리스트 홈">
+        <span class="brand__mark" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i>
+        </span>
+        <span>오체<span>FULL</span>만족</span>
+      </a>
+      <div class="topbar__actions">
+        <button class="share-button" type="button" id="share-button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V3m0 0L7.5 7.5M12 3l4.5 4.5M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>
+          공유하기
+        </button>
+        <button class="text-button" type="button" id="export-button">내보내기</button>
+        <button class="text-button" type="button" id="import-button">불러오기</button>
+        <button class="text-button text-button--danger" type="button" id="reset-button">초기화</button>
+        <input id="import-input" type="file" accept="application/json,.json" hidden>
+      </div>
+    </nav>
+
+    <div class="hero__content" id="top">
+      <div class="hero__copy">
+        <p class="eyebrow">CORPORATE PROJECT · EXECUTION CHECKLIST</p>
+        <h1>좋은 전략을<br><em>완료된 제안</em>으로.</h1>
+        <p class="hero__lead">전략 수립부터 발표와 기업 제안서 언어까지,<br>오체FULL만족의 11단계를 빠짐없이 완성하세요.</p>
+        <div class="hero__meta">
+          <span><strong id="hero-completed">0</strong>개 완료</span>
+          <span><strong id="hero-remaining">0</strong>개 남음</span>
+          <span id="save-status" role="status" aria-live="polite">이 브라우저에 자동 저장됩니다</span>
+        </div>
+      </div>
+
+      <div class="hero__progress" aria-label="전체 프로젝트 진행률">
+        <div class="progress-ring" id="progress-ring" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="progress-ring__inner">
+            <strong id="hero-progress">0%</strong>
+            <span>전체 진행률</span>
+          </div>
+        </div>
+        <p id="progress-message">첫 번째 항목부터 시작해 보세요.</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="dashboard section-shell" aria-labelledby="dashboard-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow eyebrow--dark">PROJECT PULSE</p>
+          <h2 id="dashboard-title">지금 필요한 일을 한눈에</h2>
+        </div>
+        <p class="updated-at" id="updated-at">아직 저장된 변경사항이 없습니다.</p>
+      </div>
+
+      <div class="summary-grid" aria-label="진행 현황 요약">
+        <article class="summary-card summary-card--primary">
+          <span class="summary-card__label">TOTAL PROGRESS</span>
+          <strong id="summary-progress">0%</strong>
+          <div class="linear-progress" aria-hidden="true"><i id="summary-progress-bar"></i></div>
+          <p>11단계 전체 진행률</p>
+        </article>
+        <article class="summary-card">
+          <span class="summary-card__number" id="summary-total">0</span>
+          <div><strong>전체 항목</strong><p>실행을 위해 확인할 일</p></div>
+        </article>
+        <article class="summary-card">
+          <span class="summary-card__number summary-card__number--success" id="summary-completed">0</span>
+          <div><strong>완료</strong><p>준비가 끝난 항목</p></div>
+        </article>
+        <article class="summary-card">
+          <span class="summary-card__number summary-card__number--warning" id="summary-important">0</span>
+          <div><strong>중요 미완료</strong><p>먼저 처리할 핵심 항목</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="workspace section-shell" id="checklist" aria-labelledby="checklist-title">
+      <div class="section-heading section-heading--workspace">
+        <div>
+          <p class="eyebrow eyebrow--dark">11-STEP WORKSPACE</p>
+          <h2 id="checklist-title">프로젝트 실행 체크리스트</h2>
+        </div>
+        <button class="outline-button" id="toggle-all-button" type="button">전체 펼치기</button>
+      </div>
+
+      <div class="toolbar" aria-label="체크리스트 검색 및 필터">
+        <label class="search-field" for="search-input">
+          <span class="sr-only">체크리스트 검색</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.4-4.4m2.4-5.1a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z"/></svg>
+          <input id="search-input" type="search" placeholder="항목, 단계, 결과물 검색" autocomplete="off">
+          <kbd>⌘ K</kbd>
+        </label>
+
+        <div class="filter-group" role="group" aria-label="완료 상태 필터">
+          <button class="filter-chip is-active" type="button" data-status="all" aria-pressed="true">전체</button>
+          <button class="filter-chip" type="button" data-status="incomplete" aria-pressed="false">미완료</button>
+          <button class="filter-chip" type="button" data-status="complete" aria-pressed="false">완료</button>
+          <button class="filter-chip" type="button" data-status="important" aria-pressed="false">중요</button>
+        </div>
+
+        <label class="select-field">
+          <span class="sr-only">단계 또는 파트 선택</span>
+          <select id="stage-filter">
+            <option value="all">전체 단계</option>
+            <option value="part-1">Part I · 전략 1~7</option>
+            <option value="part-2">Part II · 발표 8~10</option>
+            <option value="part-3">Part III · 기업 언어 11</option>
+            <option value="stage-1">1단계</option>
+            <option value="stage-2">2단계</option>
+            <option value="stage-3">3단계</option>
+            <option value="stage-4">4단계</option>
+            <option value="stage-5">5단계</option>
+            <option value="stage-6">6단계</option>
+            <option value="stage-7">7단계</option>
+            <option value="stage-8">8단계</option>
+            <option value="stage-9">9단계</option>
+            <option value="stage-10">10단계</option>
+            <option value="stage-11">11단계</option>
+          </select>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+        </label>
+      </div>
+
+      <div class="active-filters" id="active-filters" aria-live="polite"></div>
+      <div class="checklist-list" id="checklist-list"></div>
+
+      <div class="empty-state" id="empty-state" hidden>
+        <span aria-hidden="true">⌕</span>
+        <h3>일치하는 항목이 없습니다.</h3>
+        <p>검색어나 필터를 바꿔 다시 확인해 보세요.</p>
+        <button class="outline-button" type="button" id="clear-filters-button">필터 초기화</button>
+      </div>
+    </section>
+
+    <section class="strategy-note section-shell" aria-labelledby="strategy-title">
+      <div>
+        <p class="eyebrow">ONE SENTENCE STRATEGY</p>
+        <h2 id="strategy-title">감각 경험을<br>측정 가능한 성과로.</h2>
+      </div>
+      <blockquote>
+        오체FULL만족은 이마트가 보유한 오프라인 자산을 활용해 고객의 감각 경험을 상품 탐색, 구매전환, 연관구매 및 재방문으로 연결하는 데이터 기반 리테일 경험 전략이다.
+      </blockquote>
+      <div class="flywheel" aria-label="Sense to Sales 플라이휠">
+        <span>SENSE</span><i>→</i><span>STAY</span><i>→</i><span>INTERACTION</span><i>→</i><span>SALES</span><i>→</i><span>DATA</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer section-shell">
+    <div class="brand brand--footer"><span class="brand__mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span>오체<span>FULL</span>만족</span></div>
+    <p>사야 하는 것은 온라인으로, 사고 싶은 것은 발견하러 이마트로.</p>
+    <button class="text-button" type="button" id="print-button">체크리스트 인쇄</button>
+  </footer>
+
+  <dialog class="confirm-dialog" id="reset-dialog" aria-labelledby="reset-title">
+    <form method="dialog">
+      <span class="dialog-icon" aria-hidden="true">!</span>
+      <h2 id="reset-title">모든 진행 상황을 초기화할까요?</h2>
+      <p>체크 상태, 중요 표시, 단계별 메모가 모두 삭제됩니다. 이 작업은 되돌릴 수 없습니다.</p>
+      <div class="dialog-actions">
+        <button class="outline-button" value="cancel">취소</button>
+        <button class="danger-button" value="confirm">모두 초기화</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="share-dialog" id="share-dialog" aria-labelledby="share-title">
+    <form method="dialog">
+      <button class="dialog-close" value="cancel" aria-label="공유창 닫기">×</button>
+      <span class="share-dialog__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 16V3m0 0L7.5 7.5M12 3l4.5 4.5M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>
+      </span>
+      <h2 id="share-title">체크리스트 공유하기</h2>
+      <p id="share-description">아래 링크를 복사해 팀원에게 전달하세요.</p>
+      <div class="local-share-notice" id="local-share-notice" hidden>
+        <strong>현재는 로컬 주소입니다.</strong>
+        <span>이 링크는 현재 PC에서만 열립니다. 사이트를 온라인에 배포하면 같은 버튼으로 누구나 접속 가능한 주소를 공유할 수 있습니다.</span>
+      </div>
+      <label class="share-url-field">
+        <span class="sr-only">공유할 사이트 주소</span>
+        <input id="share-url" type="text" readonly>
+        <button type="button" id="copy-link-button">링크 복사</button>
+      </label>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
