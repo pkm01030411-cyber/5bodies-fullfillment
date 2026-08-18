@@ -166,6 +166,8 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 .hero h1 { margin: 0; font-size: clamp(3rem, 6vw, 5.4rem); line-height: 1.03; letter-spacing: -.055em; }
 .hero h1 em { color: var(--yellow); font-style: normal; }
 .hero__lead { margin: 28px 0 0; color: #c6c6bd; font-size: clamp(1rem, 1.5vw, 1.2rem); }
+.parent-page-link { display: inline-flex; margin-bottom: 20px; align-items: center; border-bottom: 1px solid rgba(255, 212, 38, .55); color: var(--yellow); font-size: 1rem; font-weight: 800; text-decoration: none; }
+.parent-page-link:hover { border-color: var(--yellow); }
 .hero__meta { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 36px; }
 .hero__meta span { padding: 8px 12px; border: 1px solid rgba(255,255,255,.16); border-radius: 999px; color: #c8c8bf; font-size: .78rem; }
 .hero__meta strong { color: white; }
